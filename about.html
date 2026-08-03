@@ -31,5 +31,35 @@
 </main>
 <footer><p>© 2026 Couple Compatibility Test · <a href="/">Home</a></p></footer>
 <script src="js/counter.js" defer></script>
+<!-- I18N-FULL -->
+<script>
+(function(){
+var lang=(navigator.language||navigator.userLanguage||'en').toLowerCase();
+if(!lang.startsWith('zh'))return;
+var ZH={"💕 Couple Compatibility Test":"💕 情侣契合度测试","Test":"测试","About":"关于","Privacy":"隐私","Contact":"联系","🏠 Home":"🏠 首页","About Couple Compatibility Test":"关于情侣契合度测试","Free couple compatibility test — answer 10 fun questions and get a detailed compatibility report with scores across 5 dimensions. All processing happens locally in your browser — no signup, no upload, no data collection.":"免费的情侣契合度测试 — 回答 10 个趣味问题，获得包含 5 个维度评分的详细契合度报告。所有处理均在您的浏览器本地完成 — 无需注册，无需上传，不收集数据。","How It Works":"工作原理","The test asks 10 questions about your relationship dynamics. Each answer contributes to scores across 5 dimensions: personality, values, lifestyle, communication, and intimacy. Results are combined with a name-based algorithm for a fun compatibility score.":"测试会询问 10 个关于您恋爱关系的问题。每个答案都会为 5 个维度的评分做出贡献：性格、价值观、生活方式、沟通和亲密关系。结果结合基于姓名的算法，得出趣味契合度分数。","5 Compatibility Dimensions":"5 个契合度维度","Personality Match — temperament and social style alignment":"性格匹配 — 气质与社交风格的契合度","Shared Values — alignment on life priorities":"共同价值观 — 人生优先事项的契合度","Lifestyle Fit — daily habits and spending compatibility":"生活方式契合 — 日常习惯与消费观念的兼容性","Communication — conflict resolution and emotional understanding":"沟通 — 冲突解决与情感理解","Intimacy & Romance — affection and emotional connection":"亲密与浪漫 — 情感表达与情感连接","Take the Test →":"开始测试 →","👁️ Views":"👁️ 浏览量","👤 Visitors":"👤 访客数","© 2026 Couple Compatibility Test ·":"© 2026 情侣契合度测试 ·","Home":"首页"};
+function walk(node){
+if(node.nodeType===3){
+var t=node.textContent,k=t.trim();
+if(k&&ZH[k]){node.textContent=t.replace(k,ZH[k])}
+}else if(node.nodeType===1&&node.tagName!=='SCRIPT'&&node.tagName!=='STYLE'&&node.tagName!=='NOSCRIPT'){
+if(node.childNodes.length>1){
+var full=node.textContent.trim();
+if(ZH[full]){node.textContent=ZH[full];return}
+}
+for(var i=0;i<node.childNodes.length;i++){walk(node.childNodes[i])}
+}
+}
+walk(document.body);
+document.documentElement.lang='zh-CN';
+var mo=new MutationObserver(function(muts){
+muts.forEach(function(m){
+if(m.type==='childList'){m.addedNodes.forEach(function(n){walk(n)})}
+else if(m.type==='characterData'){walk(m.target)}
+});
+});
+mo.observe(document.body,{childList:true,subtree:true,characterData:true});
+})();
+</script>
+<!-- /I18N-FULL -->
 </body>
 </html>
