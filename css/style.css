@@ -95,7 +95,8 @@ footer a{color:var(--hover);text-decoration:none}
   main{padding:2rem 1rem 3rem}
   h1{font-size:1.6rem}
   .navbar{padding:.75rem 1rem}
-  .navbar .nav-links{gap:.6rem}
+  .navbar .nav-links{gap:.3rem;flex-wrap:wrap}
+  .navbar .nav-links a{font-size:.75rem;padding:.3rem .35rem;min-height:40px;min-width:36px;text-align:center}
   .quiz-card{padding:1.5rem}
   .name-input-card{padding:1.5rem}
   .result-card{padding:1.5rem}
